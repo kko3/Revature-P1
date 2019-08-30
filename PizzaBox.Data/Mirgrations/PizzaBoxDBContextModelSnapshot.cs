@@ -20,16 +20,19 @@ namespace PizzaBox.Data.Mirgrations
 
             modelBuilder.Entity("PizzaBox.Domain.Models.Crust", b =>
                 {
-                    b.Property<string>("Name")
-                        .ValueGeneratedOnAdd();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Id");
+                    b.Property<string>("Name");
 
                     b.Property<decimal>("Price");
 
-                    b.HasKey("Name");
+                    b.HasKey("Id");
 
-                    b.HasAlternateKey("Id");
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasFilter("[Name] IS NOT NULL");
 
                     b.ToTable("Crusts");
                 });

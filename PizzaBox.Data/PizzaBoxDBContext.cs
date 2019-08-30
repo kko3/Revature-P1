@@ -14,7 +14,7 @@ namespace PizzaBox.Data
     protected override void OnModelCreating(ModelBuilder builder)
     {
       builder.Entity<Crust>().HasKey(c=>c.Id);
-      builder.Entity<Crust>().HasKey(c=> c.Name);
+      builder.Entity<Crust>().HasIndex(c=> c.Name).IsUnique();
     }
   }
 }
