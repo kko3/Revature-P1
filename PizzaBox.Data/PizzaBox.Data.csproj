@@ -10,4 +10,8 @@
     <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="2.2.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PizzaBox.Domain\PizzaBox.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
