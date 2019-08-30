@@ -8,6 +8,7 @@ namespace PizzaBox.Domain.Models
     public string Name { get; set; }
     public decimal Price { get; set; }
 
+    public Crust(){}
     public Crust(string n, decimal p)
     {
       Name = n;
