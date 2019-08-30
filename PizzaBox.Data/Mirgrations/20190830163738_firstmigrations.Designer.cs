@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PizzaBox.Data;
 
-namespace PizzaBox.Data.Entities
+namespace PizzaBox.Data.Mirgrations
 {
     [DbContext(typeof(PizzaBoxDBContext))]
-    [Migration("20190830161450_firstmigrations")]
+    [Migration("20190830163738_firstmigrations")]
     partial class firstmigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

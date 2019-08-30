@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace PizzaBox.Data.Entities
+namespace PizzaBox.Data.Mirgrations
 {
     public partial class firstmigrations : Migration
     {

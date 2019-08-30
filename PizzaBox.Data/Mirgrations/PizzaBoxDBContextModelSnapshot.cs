@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PizzaBox.Data;
 
-namespace PizzaBox.Data.Entities
+namespace PizzaBox.Data.Mirgrations
 {
     [DbContext(typeof(PizzaBoxDBContext))]
     partial class PizzaBoxDBContextModelSnapshot : ModelSnapshot
