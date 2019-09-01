@@ -22,7 +22,7 @@ namespace Pizzabox.Client.Controllers
         }
         public IActionResult ViewAccount()
         {
-          return View("~/Views/User/ViewAccount.cshtml");
+          return View("~/Views/Pizza/CreatePizza.cshtml");
         }
     }
 }

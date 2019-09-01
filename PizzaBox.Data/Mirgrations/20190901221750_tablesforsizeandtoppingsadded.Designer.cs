@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PizzaBox.Data;
 
 namespace PizzaBox.Data.Mirgrations
 {
     [DbContext(typeof(PizzaBoxDBContext))]
-    partial class PizzaBoxDBContextModelSnapshot : ModelSnapshot
+    [Migration("20190901221750_tablesforsizeandtoppingsadded")]
+    partial class tablesforsizeandtoppingsadded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

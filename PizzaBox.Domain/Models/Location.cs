@@ -4,6 +4,8 @@ namespace PizzaBox.Domain.Models
 {
     public class Location
     {
+
+      public int Id { get; set; }
       public List<Order> CurrentOrders { get; set; }
       public decimal Sales { get; set; }
 
@@ -13,6 +15,11 @@ namespace PizzaBox.Domain.Models
 
       //public Dictionary<string,int> Inventory { get; set; }
 
+      public Location()
+      {
+        List<User> Users = new List<User>();
+        List<Order> CurrentOrders = new List<Order>(); 
+      }
       public Location(string n)
       {
         LocationName = n;
