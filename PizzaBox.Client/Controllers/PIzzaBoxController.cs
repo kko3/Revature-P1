@@ -16,6 +16,10 @@ namespace Pizzabox.Client.Controllers
 
           return RedirectToAction("ViewAccount");
         }
+        public IActionResult CreateAccount(){
+
+          return View("~/Views/User/CreateAccount.cshtml");
+        }
         public IActionResult ViewAccount()
         {
           return View("~/Views/User/ViewAccount.cshtml");
