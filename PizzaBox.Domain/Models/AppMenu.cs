@@ -30,7 +30,7 @@ namespace PizzaBox.Domain.Models
 
 
       while(!quit){
-        accountsignedin = u.AccountName;
+        accountsignedin = u.UserName;
         
         do{
           Console.WriteLine($"                                            Current User: " + accountsignedin);
@@ -46,7 +46,7 @@ namespace PizzaBox.Domain.Models
 
         if(choice == 1)
         {
-          if(u.AccountName == "None")
+          if(u.UserName == "")
           {
             u = u.UserLogin();
           }
@@ -61,7 +61,7 @@ namespace PizzaBox.Domain.Models
         }
         else if(choice == 3)
         {
-          if(u.AccountName == "None"){
+          if(u.UserName == ""){
             Console.WriteLine("Please log in or create an Account.");
           }
           else

@@ -5,12 +5,12 @@ namespace PizzaBox.Domain.Models
 {
   public class User
   {
-    public List<Order> OrderHistory { get; set; }
-    public string AccountName { get; set; }
+
+    public int Id { get; set; }
     public string UserName { get; set; }
     public string Password { get; set; }
     public Location SelectedLocation { get; set; }
-
+    public List<Order> OrderHistory { get; set; }
 
     public User UserLogin(){
       User u = new User();
@@ -36,7 +36,7 @@ namespace PizzaBox.Domain.Models
         }
       }
 
-      u.AccountName = "Test";
+      u.UserName = "Test";
 
       return u;
     }
@@ -64,7 +64,6 @@ namespace PizzaBox.Domain.Models
       }while(typedpassword1 != typedpassword2);
 
       u.UserName = typedusername;
-      u.AccountName = typedusername;
       u.Password = typedpassword1;
 
 
@@ -287,9 +286,8 @@ namespace PizzaBox.Domain.Models
 
     public User()
     {
-      AccountName = "None";
-      UserName = "username";
-      Password = "password";
+      UserName = "";
+      Password = "";
       OrderHistory = new List<Order>();
     }
   }
