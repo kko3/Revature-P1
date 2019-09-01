@@ -1,0 +1,12 @@
+@model PizzaBox.Domain.Models.Crust
+
+<form>
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name">
+  
+  <span asp-validation-for="@Model.Name"></span>
+  <label for="price">Price</label>
+  <input type="number" id="price" name="price">
+
+  <button type="submit">Add Crust</button>
+</form>
