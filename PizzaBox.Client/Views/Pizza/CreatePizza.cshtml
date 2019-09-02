@@ -1,0 +1,27 @@
+@model PizzaBox.Domain.Models.PizzaMenu
+
+<p>Lets create a pizza</p>
+
+<form>
+  <label>Crust:</label><br>
+  @foreach (var item in Model.CrustsOnMenu)
+  {
+      <input type="radio" name="crust" value=@item.Name>@item.Name
+  }
+  <br>
+  <div></div>
+  <label>Size:</label><br>
+  @foreach (var item in Model.SizesOnMenu)
+  {
+      <input type="radio" name="size" value=@item.Name>@item.Name
+  }
+  <br>
+  <div></div>
+  <label>Toppings:</label><br>
+  @foreach (var item in Model.ToppingsOnMenu)
+  {
+      <input type="checkbox" name="topping" value=@item.Name>@item.Name
+  }
+  <br>
+  <button type ="submit">Create Pizza</button>
+</form>
