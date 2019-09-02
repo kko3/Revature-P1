@@ -7,21 +7,21 @@
   <label>Crust:</label><br>
   @foreach (var item in Model.CrustsOnMenu)
   {
-      <input type="radio" name="crust" value="">@item.Name;
+    <input type="radio" name="crust" value="@item.Id"> @item.Name;
   }
   <br>
   <div></div>
   <label>Size:</label><br>
   @foreach (var item in Model.SizesOnMenu)
   {
-      <input type="radio" id="size"name="size" value="">@item.Name
+    <input type="radio" name="size" value="@item.Id"> @item.Name
   }
   <br>
   <div></div>
   <label>Toppings:</label><br>
   @foreach (var item in Model.ToppingsOnMenu)
   {
-      <input type="checkbox" id="size" name="topping" value="">@item.Name
+    <input type="checkbox" name="topping" value="@item.Id"> @item.Name
   }
   <br>
   <button type ="submit">Create Pizza</button>

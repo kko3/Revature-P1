@@ -6,6 +6,6 @@
 <p>Toppings:</p>
 @foreach (var item in Model.PizzaToppings)
 {
-    <p>item.Name</p>
+    <p>@item.Name</p>
 }
-<p>Cost: Model.Cost</p>
+<p>Cost: $@Model.Cost</p>
