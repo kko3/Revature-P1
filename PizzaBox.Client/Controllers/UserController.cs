@@ -18,17 +18,56 @@ namespace Pizzabox.Client.Controllers
         }
 
         [HttpPost]
-        public IActionResult FrontPage(User u){
+        public IActionResult FrontPage(string username,string password){
 
-          return RedirectToAction("ViewAccount");
+          User u = new User();
+          foreach (var item in _db.Users)
+          {
+              if(username == item.UserName)
+              {
+                if(password == item.Password)
+                {
+                  u = item;
+                  return View("ViewAccount",u);
+                }
+              }
+          }
+
+          return View();
         }
-        public IActionResult CreateAccount(){
 
-          return View("~/Views/User/CreateAccount.cshtml");
+        [HttpGet]
+        public IActionResult CreateAccount()
+        {
+          return View();
+        }
+        [HttpPost]
+        public IActionResult CreateAccount(string username,string password1,string password2){
+          foreach (var item in _db.Users)
+          {
+             if(username == item.UserName)
+             {
+               return View();
+             } 
+          }
+          if(password1 != password2)
+          {
+            return View();
+          }
+
+          User u = new User();
+          u.UserName = username;
+          u.Password = password1;
+          
+          _db.Users.Add(u);
+          _db.SaveChanges();
+
+          return RedirectToAction("FrontPage");
         }
         public IActionResult ViewAccount()
         {
-          return RedirectToAction("OrderPizza","Pizza");
+          return View();
+          //return RedirectToAction("OrderPizza","Pizza");
         }
     }
 }

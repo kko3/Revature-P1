@@ -1,1 +1,12 @@
-<p>in Account Details</p>
+@model PizzaBox.Domain.Models.User
+
+<h1>Welcome</h1>
+<p>Username: @Model.UserName</p>
+<p>Selected Store Location: @Model.SelectedLocation</p>
+<form>
+  <button type="submit">Change Location</button>
+</form>
+<br>
+<form>
+  <button type="submit">Order a Pizza</button>
+</form>
