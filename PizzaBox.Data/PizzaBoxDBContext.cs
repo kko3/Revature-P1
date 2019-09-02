@@ -8,6 +8,8 @@ namespace PizzaBox.Data
     public DbSet<Crust> Crusts { get; set; }
     public DbSet<Topping> Toppings { get; set; }
     public DbSet<Size> Sizes { get; set; }
+
+    public DbSet<Pizza> Pizzas {get; set; }
     //public DbSet<User> Users { get; set; }
 
     //public DbSet<Location> Locations { get; set; }
@@ -26,6 +28,8 @@ namespace PizzaBox.Data
 
       builder.Entity<Size>().HasKey(s=>s.Id);
       builder.Entity<Size>().HasIndex(s=>s.Name).IsUnique();
+
+      builder.Entity<Pizza>().HasKey(p=>p.Id);
 
       /*builder.Entity<User>().HasKey(u=>u.Id);
       builder.Entity<User>().HasIndex(u=>u.UserName).IsUnique();

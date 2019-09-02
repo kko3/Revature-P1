@@ -4,6 +4,7 @@ namespace PizzaBox.Domain.Models
 {
   public class Pizza
   {
+    public int Id {get; set;}
     public Crust PizzaCrust { get; set; }
     public Size PizzaSize { get; set; }
 
