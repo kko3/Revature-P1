@@ -57,7 +57,7 @@ namespace PizzaBox.Client
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=PizzaBox}/{action=FrontPage}/{id?}");
+                    template: "{controller=User}/{action=FrontPage}/{id?}");
             });
         }
     }

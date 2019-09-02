@@ -7,7 +7,7 @@ using PizzaBox.Domain.Models;
 namespace Pizzabox.Client.Controllers
 {
 
-    public class PizzaBoxController : Controller
+    public class UserController : Controller
     {
         private PizzaBoxDBContext _db = new PizzaBoxDBContext();
         
