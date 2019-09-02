@@ -1,0 +1,11 @@
+@model PizzaBox.Domain.Models.Pizza
+
+<p>Pizza Ordered</p>
+<p>Size:  @Model.PizzaSize.Name</p>
+<p>Crust: @Model.PizzaCrust.Name</p>
+<p>Toppings:</p>
+@foreach (var item in Model.PizzaToppings)
+{
+    <p>item.Name</p>
+}
+<p>Cost: Model.Cost</p>
