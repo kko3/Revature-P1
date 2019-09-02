@@ -10,9 +10,10 @@ namespace PizzaBox.Data
     public DbSet<Size> Sizes { get; set; }
 
     public DbSet<Pizza> Pizzas {get; set; }
-    //public DbSet<User> Users { get; set; }
+    public DbSet<User> Users { get; set; }
 
-    //public DbSet<Location> Locations { get; set; }
+    public DbSet<Location> Locations { get; set; }
+    public DbSet<Order> Orders { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
@@ -31,10 +32,12 @@ namespace PizzaBox.Data
 
       builder.Entity<Pizza>().HasKey(p=>p.Id);
 
-      /*builder.Entity<User>().HasKey(u=>u.Id);
+      builder.Entity<User>().HasKey(u=>u.Id);
       builder.Entity<User>().HasIndex(u=>u.UserName).IsUnique();
 
-      builder.Entity<Location>().HasKey(l=>l.Id);*/
+      builder.Entity<Location>().HasKey(l=>l.Id);
+
+      builder.Entity<Order>().HasKey(o=>o.Id);
     }
   }
 }

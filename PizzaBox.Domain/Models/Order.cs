@@ -5,6 +5,7 @@ namespace PizzaBox.Domain.Models
 {
     public class Order
     {
+        public int Id { get; set; }
         public List<Pizza> Pizzas { get; set; }
         public decimal Cost { get; set;}
 

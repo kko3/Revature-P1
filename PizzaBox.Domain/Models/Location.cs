@@ -10,6 +10,9 @@ namespace PizzaBox.Domain.Models
       public decimal Sales { get; set; }
 
       public string LocationName { get; set; }
+      public string Address { get; set; }
+      public string City { get; set; }
+      public string ProvinceOrState { get; set; }
 
       public List<User> Users { get; set; }
 
