@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using PizzaBox.Data;
 using PizzaBox.Domain.Models;
@@ -15,7 +16,7 @@ namespace  Pizzabox.Client.Controllers
           return View();
         }
         [HttpPost]
-        public IActionResult CreatePizza(int crust,int size, List<int> topping)
+        public IActionResult CreateCustomPizza(int crust,int size, List<int> topping)
         {
           Crust c = _db.Crusts.Find(crust);
           Size s = _db.Sizes.Find(size);
@@ -43,6 +44,17 @@ namespace  Pizzabox.Client.Controllers
         {
 
           return View(p);
+        }
+        public IActionResult OrderPizza()
+        {
+           PizzaMenu pm = new PizzaMenu();
+
+          pm.CrustsOnMenu = _db.Crusts.ToList();
+          pm.SizesOnMenu = _db.Sizes.ToList();
+          pm.ToppingsOnMenu = _db.Toppings.ToList();
+          
+
+          return View("~/Views/Pizza/CreateCustomPizza.cshtml",pm);
         }
     }
 }

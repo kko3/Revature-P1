@@ -28,12 +28,7 @@ namespace Pizzabox.Client.Controllers
         }
         public IActionResult ViewAccount()
         {
-          PizzaMenu pm = new PizzaMenu();
-          pm.CrustsOnMenu = _db.Crusts.ToList();
-          pm.SizesOnMenu = _db.Sizes.ToList();
-          pm.ToppingsOnMenu = _db.Toppings.ToList();
-
-          return View("~/Views/Pizza/CreatePizza.cshtml",pm);
+          return RedirectToAction("OrderPizza","Pizza");
         }
     }
 }
