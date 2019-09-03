@@ -1,0 +1,14 @@
+@model PizzaBox.Client.Controllers.MapOfStores
+
+<p>PizzaBox's Current Location</p>
+<form action="/location/changelocations" method="post">
+
+  @foreach (var item in Model.LocationsInArea)
+  {
+    <input type="radio" name="lId" value="@item.Id"> @item.LocationName;
+    <br>
+    
+  }
+  <input type="hidden" name="uId" value=@Model.Customer.Id>
+  <button type="submit">Change Location</button>
+</form>

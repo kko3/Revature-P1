@@ -2,8 +2,9 @@
 
 <h1>Welcome</h1>
 <p>Username: @Model.UserName</p>
-<p>Selected Store Location: @Model.SelectedLocation</p>
-<form>
+<p>Selected Store Location: @Model.SelectedLocation.LocationName</p>
+<form action="/location/Viewlocations" method="post">
+  <input type="hidden" name="uId" value="@Model.Id">
   <button type="submit">Change Location</button>
 </form>
 <br>

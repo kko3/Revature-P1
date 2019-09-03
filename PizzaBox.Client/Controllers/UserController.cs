@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PizzaBox.Data;
 using PizzaBox.Domain.Models;
 
@@ -21,7 +22,8 @@ namespace Pizzabox.Client.Controllers
         public IActionResult FrontPage(string username,string password){
 
           User u = new User();
-          foreach (var item in _db.Users)
+      
+          foreach (var item in _db.Users.Include(user=>user.SelectedLocation))
           {
               if(username == item.UserName)
               {
