@@ -1,7 +1,7 @@
 @model PizzaBox.Domain.Models.PizzaMenu
 
-<label>Customize your pizza</label>
 <form action="/pizza/createcustompizza" method="post">
+  <label>Customize your pizza</label>
   <label>Crust:</label><br>
   @foreach (var item in Model.CrustsOnMenu)
   {
@@ -16,12 +16,11 @@
   }
   <br>
   <div></div>
-  <label>Toppings:</label><br>
-  @foreach (var item in Model.ToppingsOnMenu)
-  {
-    <input type="checkbox" name="topping" value="@item.Id"> @item.Name
-  }
-  <br>
+  <p>Toppings on Pizza: Cheese, Marinara Sauce and Pepperoni</p>
+  <input type="hidden" name="topping" value=1>
+  <input type="hidden" name="topping" value=2>
+  <input type="hidden" name="topping" value=3>
+  <input type="checkbox" name="orderisdone" value="true">Done ordering all your Pizza<br>
   <input type="hidden" name="uId" value="@Model.UserBrowsingTheMenu.Id">
-  <button type ="submit">Order Pizza</button>
+  <button>Order Pizza</button>
 </form>
