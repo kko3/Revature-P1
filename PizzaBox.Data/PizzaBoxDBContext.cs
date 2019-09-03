@@ -38,6 +38,7 @@ namespace PizzaBox.Data
       builder.Entity<Location>().HasKey(l=>l.Id);
 
       builder.Entity<Order>().HasKey(o=>o.Id);
+      builder.Entity<Order>().HasIndex(o=>o.OrderNumber).IsUnique();
     }
   }
 }

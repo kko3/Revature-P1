@@ -4,11 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 using PizzaBox.Data;
 using PizzaBox.Domain.Models;
 
-namespace  Pizzabox.Client.Controllers
+namespace  PizzaBox.Client.Controllers
 {
     public class PizzaController : Controller
     {
         private PizzaBoxDBContext _db = new PizzaBoxDBContext();
+
+        private Order o = new Order();
 
         [HttpGet]
         public IActionResult CreatePizza()
@@ -16,7 +18,7 @@ namespace  Pizzabox.Client.Controllers
           return View();
         }
         [HttpPost]
-        public IActionResult CreateCustomPizza(int crust,int size, List<int> topping)
+        public IActionResult CreateCustomPizza(int crust,int size, List<int> topping,bool orderisdone)
         {
           Crust c = _db.Crusts.Find(crust);
           Size s = _db.Sizes.Find(size);
@@ -37,7 +39,15 @@ namespace  Pizzabox.Client.Controllers
          cost = c.Price + s.Price + toppingcost;
          Pizza p = new Pizza(c,s,t,cost);
 
-          return View("ViewPizza",p);
+        o.Pizzas.Add(p);
+        _db.Orders.Add(o);
+        _db.SaveChanges();
+        
+          if(orderisdone){
+            return View("ViewPizza",o.Pizzas);
+          }
+
+          return RedirectToAction("OrderPizza");
         }
 
         public IActionResult ViewPizza(Pizza p)
@@ -45,7 +55,24 @@ namespace  Pizzabox.Client.Controllers
 
           return View(p);
         }
-        public IActionResult OrderPizza()
+        public IActionResult OrderPizza(string pizza)
+        {
+          PizzaMenu pm = new PizzaMenu();
+
+          pm.CrustsOnMenu = _db.Crusts.ToList();
+          pm.SizesOnMenu = _db.Sizes.ToList();
+          pm.ToppingsOnMenu = _db.Toppings.ToList();
+
+          if(pizza == null){
+            return View();
+          }
+          else if(pizza == "cheesepizza"){
+            return View("CreateCheesePizza",pm);
+          }
+
+          return View();
+        }
+        public IActionResult CreateCustomPizzaMenu()
         {
            PizzaMenu pm = new PizzaMenu();
 
